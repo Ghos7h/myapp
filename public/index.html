@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- <html ng-app="myModule"> -->
+<html xmlns="www.w3.org/1999/xhtml" ng-app="Demo">
+<head>
+<title>Angular APP</title>
+<base href="/"></base>
+<script src="javascripts/angular.min.js"></script>
+<!-- <script src="script/script.js"></script>
+ --><script src="javascripts/script1.js"></script>
+<!-- <script src="script/filter.js"></script> -->
+<!-- <script src="script/stringService.js"></script> -->
+<script src="javascripts/angular-route.min.js"></script>
+
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script> -->
+<link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/style1.css">
+
+</head>
+<!-- <body ng-controller = "myController"> -->
+<body>
+	<table>
+		<tr>
+			<td colspan="2", class="header">
+				<h1>
+					WebSite Header
+				</h1>
+			</td>
+		</tr>
+		<tr>
+			<td class="leftMenu">
+				<a href="home">Home</a><br>
+				<a href="courses">Courses</a><br>
+				<a href="students">Students</a><br>
+				<a href="inline">Inline</a>
+			</td>
+			<td class="mainContent">
+				<ng-view></ng-view>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="footer">
+				<b>WebSite Footer</b>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

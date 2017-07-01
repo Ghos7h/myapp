@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+<title>Angular APP</title>
+<script src="script/angular.min.js"></script>
+<script src="script/script.js"></script>
+<script src="script/filter.js"></script>
+<script src="script/stringService.js"></script>
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body ng-controller = "myController">
+	
+	<!-- <table>
+	  
+	  <tr>
+	    <td>First Name</td>
+	    <td><input type="text" ng-model="employee.firstName"></td>
+	  </tr>
+	  <tr>
+	    <td>Last Name</td>
+	    <td><input type="text" ng-model="employee.lastName"></td>
+	  </tr>
+	  <tr>
+	    <td>Gender</td>
+	    <td><input type="text" ng-model="employee.gender"></td>
+	  </tr>
+	</table>
+	<br>
+
+
+	<table>
+	  
+	  <tr>
+	    <td>First Name</td>
+	    <td>{{employee.firstName}}</td>
+	  </tr>
+	  <tr>
+	    <td>Last Name</td>
+	    <td>{{employee.lastName}}</td>
+	  </tr>
+	  <tr>
+	    <td>Gender</td>
+	    <td>{{employee.gender}}</td>
+	  </tr>
+	</table> -->
+
+	<!-- <ul>
+		<li ng-repeat = 'country in countries' ng-init = "parent = $index">
+			{{country.name}}
+			<ul>
+				<li ng-repeat = 'city in country.cities' >
+					{{city.name}}, parent index = {{parent}}, index = {{$index}}
+				</li>
+			</ul>			
+		</li>
+	</ul> -->
+
+	<!-- angularjs event -->
+	<!-- <table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Likes</th>
+				<th>Dislikes</th>
+				<th>Likes/Dilikes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat = 'technology in technologies'>
+				<td>{{technology.name}}</td>
+				<td>{{technology.likes}}</td>
+				<td>{{technology.dislikes}}</td>
+				<td>
+				<input type="button" value="Like" ng-click = "increamentlikes(technology)"></input>
+				<input type="button" value="Dislike" ng-click = "increamentDislikes(technology)"></input>
+				</td>
+			</tr>
+		</tbody>
+	</table> -->
+
+	<!-- angularjs Filter -->
+	<!-- Row limit : <input type="number" step="1" min="1" max="{{maxLimit}}" ng-model="rowLimit"></input>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>DOB</th>
+				<th>Gender</th>
+				<th>Salary</th>
+				<th>Salary currency</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees | limitTo:rowLimit">
+				<td>{{employee.name | uppercase}}</td>
+				<td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+				<td>{{employee.gender| lowercase}}</td>
+				<td>{{employee.salary | number:3}}</td>
+				<td>{{employee.salary | currency }}</td>
+			</tr>
+		</tbody>
+	</table> -->
+
+	<!-- sorting data in angular js -->
+	<!-- Sorty by: <select ng-model = "sortColumn">
+					<option value="name">Name Asc</option>
+					<option value="dob">Date Of Birth Asc</option>
+					<option value="gender">Gender Asc</option>
+					<option value="-salary">Salary Desc</option>
+			</select>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>DOB</th>
+				<th>Gender</th>
+				<th>Salary</th>
+				<th>Salary currency</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees | orderBy:sortColumn">
+				<td>{{employee.name | uppercase}}</td>
+				<td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+				<td>{{employee.gender| lowercase}}</td>
+				<td>{{employee.salary | number:3}}</td>
+				<td>{{employee.salary | currency }}</td>
+			</tr>			
+		</tbody>
+	</table> -->
+
+	<!-- Bi-directional sorting -->
+
+	<!-- <table>
+		<thead>
+			<tr>
+				<th ng-click = "sortData('name')">Name<div ng-class = "getSortClass('name')"></div></th>
+				<th ng-click = "sortData('dob')">DOB<div ng-class = "getSortClass('dob')"></div></th>
+				<th ng-click = "sortData('gender')">Gender<div ng-class = "getSortClass('gender')"></div></th>
+				<th ng-click = "sortData('salary')">Salary<div ng-class = "getSortClass('salary')"></div></th>
+				<th ng-click = "sortData('salary')">Salary currency<div ng-class = "getSortClass('salary')"></div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort">
+				<td>{{employee.name | uppercase}}</td>
+				<td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+				<td>{{employee.gender| lowercase}}</td>
+				<td>{{employee.salary | number:3}}</td>
+				<td>{{employee.salary | currency }}</td>
+			</tr>			
+		</tbody>
+	</table> -->
+
+	<!-- Search filter in angular js -->
+	<!-- Search: <input type="text" placeholder="Search holder" ng-model = "serchText"></input>
+	<br><br>
+
+	<table>
+		<thead>
+			<tr>
+				<th ng-click = "sortData('name')">Name<div ng-class = "getSortClass('name')"></div></th>
+				<th ng-click = "sortData('dob')">DOB<div ng-class = "getSortClass('dob')"></div></th>
+				<th ng-click = "sortData('gender')">Gender<div ng-class = "getSortClass('gender')"></div></th>
+				<th ng-click = "sortData('salary')">Salary<div ng-class = "getSortClass('salary')"></div></th>
+				<th ng-click = "sortData('salary')">Salary currency<div ng-class = "getSortClass('salary')"></div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees | filter:serchText">
+				<td>{{employee.name | uppercase}}</td>
+				<td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+				<td>{{employee.gender| lowercase}}</td>
+				<td>{{employee.salary | number:3}}</td>
+				<td>{{employee.salary | currency }}</td>
+			</tr>			
+		</tbody>
+	</table> -->
+
+
+	<!-- Filter by multiple properties -->
+	<!-- Search by name: <input type="text" placeholder="Search by name" ng-model = "serchText.name"></input>
+	Search by city: <input type="text" placeholder="Search by city" ng-model = "serchText.city"></input>
+	<input type="checkbox" ng-model="xactMatch"> Exact Match<br><br>
+
+	<table>
+		<thead>
+			<tr>
+				<th ng-click = "sortData('name')">Name<div ng-class = "getSortClass('name')"></div></th>
+				<th ng-click = "sortData('dob')">DOB<div ng-class = "getSortClass('dob')"></div></th>
+				<th ng-click = "sortData('gender')">Gender<div ng-class = "getSortClass('gender')"></div></th>
+				<th ng-click = "sortData('salary')">Salary<div ng-class = "getSortClass('salary')"></div></th>
+				<th ng-click = "sortData('salary')">Salary currency<div ng-class = "getSortClass('salary')"></div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees | filter:serchText:xactMatch">
+				<td>{{employee.name | uppercase}}</td>
+				<td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+				<td>{{employee.gender| lowercase}}</td>
+				<td>{{employee.salary | number:3}}</td>
+				<td>{{employee.salary | currency }}</td>
+			</tr>			
+		</tbody>
+	</table> -->
+
+	<!-- Filter by multiple properties using single text box-->
+	<!-- Search : <input type="text" placeholder="Search employees" ng-model = "serchText"></input>
+	<br><br>
+
+	<table>
+		<thead>
+			<tr>
+				<th ng-click = "sortData('name')">Name<div ng-class = "getSortClass('name')"></div></th>
+				<th ng-click = "sortData('dob')">DOB<div ng-class = "getSortClass('dob')"></div></th>
+				<th ng-click = "sortData('gender')">Gender<div ng-class = "getSortClass('gender')"></div></th>
+				<th ng-click = "sortData('salary')">Salary<div ng-class = "getSortClass('salary')"></div></th>
+				<th ng-click = "sortData('salary')">Salary currency<div ng-class = "getSortClass('salary')"></div></th>
+				<th ng-click = "sortData('city')">City<div ng-class = "getSortClass('city')"></div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees | filter:search">
+				<td>{{employee.name | uppercase}}</td>
+				<td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+				<td>{{employee.gender| lowercase}}</td>
+				<td>{{employee.salary | number:3}}</td>
+				<td>{{employee.salary | currency }}</td>
+				<td>{{employee.city | uppercase }}</td>
+			</tr>			
+		</tbody>
+	</table> -->
+
+	<!-- Custom Filter -->
+	<!-- <table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Salary</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees">
+				<td>{{employee.name | id}}</td>
+				<td>{{employee.gender| gender}}</td>
+				<td>{{employee.salary | number:3}}</td>				
+			</tr>			
+		</tbody>
+	</table> -->
+
+	<!-- ng-hide and ng-dhow directive -->
+	<!-- <input type="checkbox" ng-model = "hideSalary">Hide Salary</input>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th ng-hide = "hideSalary">Salary</th>
+				<th ng-show = "hideSalary">Salary</th>
+				<th>City</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees">
+				<td>{{employee.name}}</td>
+				<td>{{employee.gender | gender}}</td>
+				<td ng-hide = "hideSalary">{{employee.salary}}</td>
+				<td ng-show = "hideSalary">####</td>
+				<td>{{employee.city}}</td>				
+			</tr>			
+		</tbody>
+	</table> -->
+	<!-- Select View : <select ng-model="employeeView">
+		<option value="'EmployeeList.html'">List</option>
+		<option value="'EmployeeTable.html'">Table</option>
+	</select> -->
+	<!-- <div ng-include="employeeView"></div> -->
+
+	<!-- Custom Service -->
+	<!-- <table>
+		<tr>
+			<td>
+				Your String
+			</td>
+			<td>
+				<input type="text" ng-model="input"></input>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Result
+			</td>
+			<td>
+				<input type="text" ng-model="output"></input>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="button" value="Processing String" ng-click = "processString(input)"></input>
+			</td>
+		</tr>
+	</table> -->
+</body>
+</html>
